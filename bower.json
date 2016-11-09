@@ -1,17 +1,19 @@
 {
-  "name": "ConFusion",
-  "homepage": "https://github.com/paulohaacke/ConFusion",
-  "authors": [
-    "Paulo André Haacke <paulohaacke@gmail.com>"
-  ],
-  "description": "Website for an awesome restaurant.",
+  "name": "conFusion",
+  "version": "1.0.0",
+  "description": "Website for an awesome restaurant",
   "main": "index.html",
+  "moduleType": [],
   "keywords": [
     "conFusion",
     "Fusion",
     "Restaurant"
   ],
+  "authors": [
+    "Jogesh Muppala"
+  ],
   "license": "MIT",
+  "homepage": "",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -20,7 +22,8 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "^3.3.7",
-    "font-awesome": "^4.7.0"
+    "bootstrap": "~3.3.5",
+    "font-awesome": "~4.4.0",
+    "angular": "~1.4.7"
   }
 }

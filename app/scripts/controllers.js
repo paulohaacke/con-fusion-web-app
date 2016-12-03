@@ -1,39 +1,39 @@
 'use strict';
 
 angular.module('confusionApp')
-.controller('MenuController', ['$scope', 'menuFactory', function($scope, menuFactory) {
+    .controller('MenuController', ['$scope', 'menuFactory', function($scope, menuFactory) {
 
-    $scope.tab = 1;
-    $scope.filtText = '';
-    $scope.showDetails = false;
+        $scope.tab = 1;
+        $scope.filtText = '';
+        $scope.showDetails = false;
 
-    $scope.dishes= menuFactory.getDishes();
+        $scope.dishes = menuFactory.getDishes();
 
-    $scope.select = function(setTab) {
-        $scope.tab = setTab;
+        $scope.select = function(setTab) {
+            $scope.tab = setTab;
 
-        if (setTab === 2) {
-            $scope.filtText = "appetizer";
-        }
-        else if (setTab === 3) {
-            $scope.filtText = "mains";
-        }
-        else if (setTab === 4) {
-            $scope.filtText = "dessert";
-        }
-        else {
-            $scope.filtText = "";
-        }
-    };
+            if (setTab === 2) {
+                $scope.filtText = "appetizer";
+            }
+            else if (setTab === 3) {
+                $scope.filtText = "mains";
+            }
+            else if (setTab === 4) {
+                $scope.filtText = "dessert";
+            }
+            else {
+                $scope.filtText = "";
+            }
+        };
 
-    $scope.isSelected = function(checkTab) {
-        return ($scope.tab === checkTab);
-    };
+        $scope.isSelected = function(checkTab) {
+            return ($scope.tab === checkTab);
+        };
 
-    $scope.toggleDetails = function() {
-        $scope.showDetails = !$scope.showDetails;
-    };
-}])
+        $scope.toggleDetails = function() {
+            $scope.showDetails = !$scope.showDetails;
+        };
+    }])
 
 .controller('ContactController', ['$scope', function($scope) {
 
@@ -84,8 +84,8 @@ angular.module('confusionApp')
     };
 }])
 
-.controller('DishDetailController', ['$scope', '$routeParams', 'menuFactory', function($scope, $routeParams, menuFactory) {
-    var dish= menuFactory.getDish(parseInt($routeParams.id,10));
+.controller('DishDetailController', ['$scope', '$stateParams', 'menuFactory', function($scope, $stateParams, menuFactory) {
+    var dish = menuFactory.getDish(parseInt($stateParams.id, 10));
     $scope.dish = dish;
 }])
 

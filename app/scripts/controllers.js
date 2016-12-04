@@ -126,7 +126,7 @@ angular.module('confusionApp')
 
     $scope.featuredDish = menuFactory.getDish(0);
     $scope.promotion = menuFactory.getPromotion(0);
-    $scope.chefExecutive = corporateFactory.getLeader(0);
+    $scope.chefExecutive = corporateFactory.getLeader(3);
 
 }])
 

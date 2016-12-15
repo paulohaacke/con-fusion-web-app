@@ -2,7 +2,7 @@
 
 angular.module('confusionApp')
 
-.constant("baseURL", "http://webdev-cousera-paulohaacke.c9users.io/")
+.constant("baseURL", "http://0.0.0.0:8081/")
 
 .service('menuFactory', ['$resource', 'baseURL', function($resource, baseURL) {
 

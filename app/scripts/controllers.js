@@ -143,8 +143,9 @@ angular.module('confusionApp')
 .controller('IndexController', ['$scope', 'menuFactory', 'corporateFactory', function($scope, menuFactory, corporateFactory) {
     $scope.showDish = false;
     $scope.showPromotion = false;
+    $scope.showLeader = false;
     $scope.message = "Loading ...";
-    menuFactory.getDishes().get({
+    $scope.featuredDish = menuFactory.getDishes().get({
             id: 0
         })
         .$promise.then(
@@ -156,7 +157,7 @@ angular.module('confusionApp')
                 $scope.message = "Error: " + response.status + " " + response.statusText;
             }
         );
-    menuFactory.getPromotions().get({
+    $scope.promotion = menuFactory.getPromotions().get({
             id: 0
         })
         .$promise.then(
@@ -168,11 +169,32 @@ angular.module('confusionApp')
                 $scope.message = "Error: " + response.status + " " + response.statusText;
             }
         )
-    $scope.chefExecutive = corporateFactory.getLeader(3);
+    $scope.chefExecutive = corporateFactory.getLeaders().get({
+            id: 3
+        })
+        .$promise.then(
+            function(response) {
+                $scope.chefExecutive = response;
+                $scope.showLeader = true;
+            },
+            function(response) {
+                $scope.message = "Error: " + response.status + " " + response.statusText;
+            }
+        );
 }])
 
 .controller('AboutController', ['$scope', 'corporateFactory', function($scope, corporateFactory) {
-    $scope.leadersList = corporateFactory.getLeaders();
+    $scope.showLeaders = false;
+    $scope.message = "Loading ...";
+    $scope.leadersList = corporateFactory.getLeaders().query(
+        function(response) {
+            $scope.leadersList = response;
+            $scope.showLeaders = true;
+        },
+        function(response) {
+            $scope.message = "Error: " + response.status + " " + response.statusText;
+        }
+    );
 }])
 
 ;

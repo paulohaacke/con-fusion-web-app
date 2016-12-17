@@ -82,7 +82,14 @@ gulp.task('browser-sync', ['default'], function() {
     browserSync.init(files, {
         server: {
             baseDir: "dist",
-            index: "index.html"
+            index: "index.html",
+        },
+        port: 8081,
+        ui: {
+            port: 8082,
+            weinre: {
+                port: 8083
+            }
         }
     });
     // Watch any files in dist/, reload on change

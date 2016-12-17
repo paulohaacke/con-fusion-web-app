@@ -2,7 +2,7 @@
 
 angular.module('confusionApp')
 
-.constant("baseURL", "http://0.0.0.0:8081/")
+.constant("baseURL", "http://0.0.0.0:8080/")
 
 .service('menuFactory', ['$resource', 'baseURL', function($resource, baseURL) {
 
@@ -14,7 +14,6 @@ angular.module('confusionApp')
             price: '19.99',
             description: 'Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person ',
         }
-
     ];
 
     this.getDishes = function() {
@@ -29,7 +28,7 @@ angular.module('confusionApp')
     // that returns a selected promotion.
     this.getPromotion = function(index) {
         return promotions[index];
-    }
+    };
 
 }])
 
@@ -70,11 +69,11 @@ angular.module('confusionApp')
     // Remember this is a factory not a service
     corpfac.getLeaders = function() {
         return leadership;
-    }
+    };
 
     corpfac.getLeader = function(index) {
         return leadership[index];
-    }
+    };
 
     return corpfac;
 })

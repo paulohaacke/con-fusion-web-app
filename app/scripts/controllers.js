@@ -17,7 +17,7 @@ angular.module('confusionApp')
         },
         function(response) {
             $scope.message = "Error: " + response.status + " " + response.statusText;
-        });;
+        });
 
     $scope.select = function(setTab) {
         $scope.tab = setTab;
@@ -74,7 +74,7 @@ angular.module('confusionApp')
 
         console.log($scope.feedback);
 
-        if ($scope.feedback.agree && ($scope.feedback.mychannel == "")) {
+        if ($scope.feedback.agree && ($scope.feedback.mychannel === "")) {
             $scope.invalidChannelSelection = true;
             console.log('incorrect');
         }
@@ -136,7 +136,7 @@ angular.module('confusionApp')
             author: "",
             date: ""
         };
-    }
+    };
 }])
 
 // implement the IndexController and About Controller here

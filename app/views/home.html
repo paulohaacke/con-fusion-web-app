@@ -1,4 +1,4 @@
-<div class="container" ng-controller="IndexController">
+<div class="container">
     <div class="row row-content">
         <div class="col-xs-12 col-sm-3 col-sm-push-9">
             <p style="padding:20px;"></p>
@@ -10,17 +10,20 @@
             </div>
             <div class="media" ng-if="showDish">
                 <div class="media-left media-middle">
-                    <a ui-sref="app.dishdetails({id: featuredDish._id})">
-                        <img class="media-object img-thumbnail" ng-src="{{featuredDish.image}}" alt="{{featuredDish.name}}">
+                    <a href="#">
+                        <img class="media-object img-thumbnail" ng-src={{dish.image}} alt="Uthappizza">
                     </a>
                 </div>
                 <div class="media-body">
-                    <h2 class="media-heading">{{featuredDish.name}} <span class="label label-danger label-xs">{{featuredDish.label}}</span> <span class="badge">{{featuredDish.price}}</span></h2>
-                    <p>{{featuredDish.description}}</p>
+                    <h2 class="media-heading">{{dish.name}}
+                        <span class="label label-danger">{{dish.label}}</span>
+                        <span class="badge">{{dish.price/100 | currency}}</span></h2>
+                    <p>{{dish.description}}</p>
                 </div>
             </div>
         </div>
     </div>
+
 
     <div class="row row-content">
         <div class="col-xs-12 col-sm-3">
@@ -33,11 +36,15 @@
             </div>
             <div class="media" ng-if="showPromotion">
                 <div class="media-body">
-                    <h2 class="media-heading">{{promotion.name}} <span class="label label-danger label-xs">{{promotion.label}}</span> <span class="badge">{{promotion.price}}</span></h2>
+                    <h2 class="media-heading">{{promotion.name}}
+                        <span class="label label-danger label-xs">{{promotion.label}}</span>
+                        <span class="badge">{{promotion.price/100 | currency}}</span></h2>
                     <p>{{promotion.description}}</p>
                 </div>
                 <div class="media-right media-middle">
-                    <img class="media-object img-thumbnail" ng-src="{{promotion.image}}" alt="{{promotion.name}}">
+                    <a href="#">
+                        <img class="media-object img-thumbnail" ng-src="{{promotion.image}}" alt="Weekend Grand Buffet">
+                    </a>
                 </div>
             </div>
         </div>
@@ -54,13 +61,14 @@
             </div>
             <div class="media" ng-if="showLeader">
                 <div class="media-left media-middle">
-                    <img class="media-object img-thumbnail" ng-src="{{chefExecutive.image}}" alt="{{chefExecutive.name}}">
+                    <a>
+                        <img class="media-object img-thumbnail" ng-src={{leader.image}} alt="Peter Pan">
+                    </a>
                 </div>
                 <div class="media-body">
-                    <h3 class="media-heading">{{chefExecutive.name}} <small>{{chefExecutive.designation}}</small></h3>
-                    <p>
-                        {{chefExecutive.description}}
-                    </p>
+                    <h3 class="media-heading">{{leader.name}}
+                        <small>{{leader.designation}}</small></h3>
+                    <p>{{leader.description}}</p>
                 </div>
             </div>
         </div>

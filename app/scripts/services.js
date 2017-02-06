@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('confusionApp')
-    .constant("baseURL", "https://localhost:3443/")
+    .constant("baseURL", "https://192.168.0.14:3443/")
     .factory('menuFactory', ['$resource', 'baseURL', function($resource, baseURL) {
 
         return $resource(baseURL + "dishes/:id", null, {
